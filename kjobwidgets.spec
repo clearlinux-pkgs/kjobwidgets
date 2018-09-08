@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kjobwidgets
-Version  : 5.49.0
-Release  : 3
-URL      : https://download.kde.org/stable/frameworks/5.49/kjobwidgets-5.49.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.49/kjobwidgets-5.49.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.49/kjobwidgets-5.49.0.tar.xz.sig
+Version  : 5.50.0
+Release  : 4
+URL      : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -18,7 +18,6 @@ Requires: kjobwidgets-data
 Requires: kjobwidgets-license
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kwidgetsaddons-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
 BuildRequires : qtx11extras-dev
@@ -67,14 +66,14 @@ license components for the kjobwidgets package.
 
 
 %prep
-%setup -q -n kjobwidgets-5.49.0
+%setup -q -n kjobwidgets-5.50.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535430353
+export SOURCE_DATE_EPOCH=1536423906
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -82,7 +81,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535430353
+export SOURCE_DATE_EPOCH=1536423906
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kjobwidgets
 cp COPYING.LIB %{buildroot}/usr/share/doc/kjobwidgets/COPYING.LIB
@@ -227,7 +226,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5JobWidgets.so.5
-/usr/lib64/libKF5JobWidgets.so.5.49.0
+/usr/lib64/libKF5JobWidgets.so.5.50.0
 
 %files license
 %defattr(-,root,root,-)
