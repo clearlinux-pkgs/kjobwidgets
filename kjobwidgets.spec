@@ -5,23 +5,21 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kjobwidgets
-Version  : 5.50.0
-Release  : 5
-URL      : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kjobwidgets-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 6
+URL      : https://download.kde.org/stable/frameworks/5.51/kjobwidgets-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kjobwidgets-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kjobwidgets-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: kjobwidgets-lib
-Requires: kjobwidgets-data
-Requires: kjobwidgets-license
+Requires: kjobwidgets-data = %{version}-%{release}
+Requires: kjobwidgets-lib = %{version}-%{release}
+Requires: kjobwidgets-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kwidgetsaddons-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
-BuildRequires : qtx11extras-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 # KJobWidgets
@@ -40,9 +38,9 @@ data components for the kjobwidgets package.
 %package dev
 Summary: dev components for the kjobwidgets package.
 Group: Development
-Requires: kjobwidgets-lib
-Requires: kjobwidgets-data
-Provides: kjobwidgets-devel
+Requires: kjobwidgets-lib = %{version}-%{release}
+Requires: kjobwidgets-data = %{version}-%{release}
+Provides: kjobwidgets-devel = %{version}-%{release}
 
 %description dev
 dev components for the kjobwidgets package.
@@ -51,8 +49,8 @@ dev components for the kjobwidgets package.
 %package lib
 Summary: lib components for the kjobwidgets package.
 Group: Libraries
-Requires: kjobwidgets-data
-Requires: kjobwidgets-license
+Requires: kjobwidgets-data = %{version}-%{release}
+Requires: kjobwidgets-license = %{version}-%{release}
 
 %description lib
 lib components for the kjobwidgets package.
@@ -67,25 +65,25 @@ license components for the kjobwidgets package.
 
 
 %prep
-%setup -q -n kjobwidgets-5.50.0
+%setup -q -n kjobwidgets-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536434505
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539632065
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536434505
+export SOURCE_DATE_EPOCH=1539632065
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kjobwidgets
-cp COPYING.LIB %{buildroot}/usr/share/doc/kjobwidgets/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kjobwidgets
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kjobwidgets/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -227,8 +225,8 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5JobWidgets.so.5
-/usr/lib64/libKF5JobWidgets.so.5.50.0
+/usr/lib64/libKF5JobWidgets.so.5.51.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kjobwidgets/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kjobwidgets/COPYING.LIB
