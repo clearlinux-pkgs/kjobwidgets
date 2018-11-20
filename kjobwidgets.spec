@@ -6,7 +6,7 @@
 #
 Name     : kjobwidgets
 Version  : 5.52.0
-Release  : 8
+Release  : 9
 URL      : https://download.kde.org/stable/frameworks/5.52/kjobwidgets-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kjobwidgets-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kjobwidgets-5.52.0.tar.xz.sig
@@ -26,14 +26,6 @@ BuildRequires : qtbase-dev mesa-dev
 Widgets for showing progress of asynchronous jobs
 ## Introduction
 KJobWIdgets provides widgets for showing progress of asynchronous jobs.
-
-%package abi
-Summary: abi components for the kjobwidgets package.
-Group: Default
-
-%description abi
-abi components for the kjobwidgets package.
-
 
 %package data
 Summary: data components for the kjobwidgets package.
@@ -80,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541875379
+export SOURCE_DATE_EPOCH=1542743237
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -88,7 +80,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541875379
+export SOURCE_DATE_EPOCH=1542743237
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kjobwidgets
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kjobwidgets/COPYING.LIB
@@ -98,10 +90,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5JobWidgets.so.5.52.0.abi
 
 %files data
 %defattr(-,root,root,-)
