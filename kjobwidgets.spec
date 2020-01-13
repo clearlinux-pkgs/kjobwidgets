@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kjobwidgets
-Version  : 5.65.0
-Release  : 26
-URL      : https://download.kde.org/stable/frameworks/5.65/kjobwidgets-5.65.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.65/kjobwidgets-5.65.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.65/kjobwidgets-5.65.0.tar.xz.sig
+Version  : 5.66.0
+Release  : 27
+URL      : https://download.kde.org/stable/frameworks/5.66/kjobwidgets-5.66.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.66/kjobwidgets-5.66.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.66/kjobwidgets-5.66.0.tar.xz.sig
 Summary  : Widgets for tracking KJob instances
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -42,6 +42,7 @@ Requires: kjobwidgets-lib = %{version}-%{release}
 Requires: kjobwidgets-data = %{version}-%{release}
 Provides: kjobwidgets-devel = %{version}-%{release}
 Requires: kjobwidgets = %{version}-%{release}
+Requires: kjobwidgets = %{version}-%{release}
 
 %description dev
 dev components for the kjobwidgets package.
@@ -66,17 +67,18 @@ license components for the kjobwidgets package.
 
 
 %prep
-%setup -q -n kjobwidgets-5.65.0
-cd %{_builddir}/kjobwidgets-5.65.0
+%setup -q -n kjobwidgets-5.66.0
+cd %{_builddir}/kjobwidgets-5.66.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576533454
+export SOURCE_DATE_EPOCH=1578948504
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -90,10 +92,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576533454
+export SOURCE_DATE_EPOCH=1578948504
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kjobwidgets
-cp %{_builddir}/kjobwidgets-5.65.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kjobwidgets/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kjobwidgets-5.66.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kjobwidgets/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -234,7 +236,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5JobWidgets.so.5
-/usr/lib64/libKF5JobWidgets.so.5.65.0
+/usr/lib64/libKF5JobWidgets.so.5.66.0
 
 %files license
 %defattr(0644,root,root,0755)
