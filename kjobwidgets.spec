@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kjobwidgets
-Version  : 5.78.0
-Release  : 39
-URL      : https://download.kde.org/stable/frameworks/5.78/kjobwidgets-5.78.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.78/kjobwidgets-5.78.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.78/kjobwidgets-5.78.0.tar.xz.sig
+Version  : 5.81.0
+Release  : 40
+URL      : https://download.kde.org/stable/frameworks/5.81/kjobwidgets-5.81.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.81/kjobwidgets-5.81.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.81/kjobwidgets-5.81.0.tar.xz.sig
 Summary  : Widgets for tracking KJob instances
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-3.0
@@ -70,15 +70,15 @@ license components for the kjobwidgets package.
 
 
 %prep
-%setup -q -n kjobwidgets-5.78.0
-cd %{_builddir}/kjobwidgets-5.78.0
+%setup -q -n kjobwidgets-5.81.0
+cd %{_builddir}/kjobwidgets-5.81.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611178277
+export SOURCE_DATE_EPOCH=1618623037
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,14 +94,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1611178277
+export SOURCE_DATE_EPOCH=1618623037
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kjobwidgets
-cp %{_builddir}/kjobwidgets-5.78.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kjobwidgets-5.78.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kjobwidgets-5.78.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kjobwidgets-5.78.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kjobwidgets-5.78.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kjobwidgets-5.81.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kjobwidgets-5.81.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kjobwidgets-5.81.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kjobwidgets-5.81.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kjobwidgets-5.81.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -225,6 +225,7 @@ popd
 /usr/include/KF5/KJobWidgets/KJobWidgets
 /usr/include/KF5/KJobWidgets/KStatusBarJobTracker
 /usr/include/KF5/KJobWidgets/KUiServerJobTracker
+/usr/include/KF5/KJobWidgets/KUiServerV2JobTracker
 /usr/include/KF5/KJobWidgets/KWidgetJobTracker
 /usr/include/KF5/KJobWidgets/kabstractwidgetjobtracker.h
 /usr/include/KF5/KJobWidgets/kdialogjobuidelegate.h
@@ -232,6 +233,7 @@ popd
 /usr/include/KF5/KJobWidgets/kjobwidgets_export.h
 /usr/include/KF5/KJobWidgets/kstatusbarjobtracker.h
 /usr/include/KF5/KJobWidgets/kuiserverjobtracker.h
+/usr/include/KF5/KJobWidgets/kuiserverv2jobtracker.h
 /usr/include/KF5/KJobWidgets/kwidgetjobtracker.h
 /usr/include/KF5/kjobwidgets_version.h
 /usr/lib64/cmake/KF5JobWidgets/KF5JobWidgetsConfig.cmake
@@ -244,7 +246,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5JobWidgets.so.5
-/usr/lib64/libKF5JobWidgets.so.5.78.0
+/usr/lib64/libKF5JobWidgets.so.5.81.0
 
 %files license
 %defattr(0644,root,root,0755)
