@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kjobwidgets
-Version  : 5.83.0
-Release  : 42
-URL      : https://download.kde.org/stable/frameworks/5.83/kjobwidgets-5.83.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.83/kjobwidgets-5.83.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.83/kjobwidgets-5.83.0.tar.xz.sig
+Version  : 5.85.0
+Release  : 43
+URL      : https://download.kde.org/stable/frameworks/5.85/kjobwidgets-5.85.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.85/kjobwidgets-5.85.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.85/kjobwidgets-5.85.0.tar.xz.sig
 Summary  : Widgets for tracking KJob instances
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-3.0
@@ -70,38 +70,38 @@ license components for the kjobwidgets package.
 
 
 %prep
-%setup -q -n kjobwidgets-5.83.0
-cd %{_builddir}/kjobwidgets-5.83.0
+%setup -q -n kjobwidgets-5.85.0
+cd %{_builddir}/kjobwidgets-5.85.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623647056
+export SOURCE_DATE_EPOCH=1630897600
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623647056
+export SOURCE_DATE_EPOCH=1630897600
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kjobwidgets
-cp %{_builddir}/kjobwidgets-5.83.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kjobwidgets-5.83.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kjobwidgets-5.83.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kjobwidgets-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kjobwidgets-5.83.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kjobwidgets-5.85.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kjobwidgets-5.85.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kjobwidgets-5.85.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kjobwidgets-5.85.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kjobwidgets-5.85.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kjobwidgets/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -246,7 +246,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5JobWidgets.so.5
-/usr/lib64/libKF5JobWidgets.so.5.83.0
+/usr/lib64/libKF5JobWidgets.so.5.85.0
 
 %files license
 %defattr(0644,root,root,0755)
